@@ -1,0 +1,6 @@
+<h5>Language</h5>
+<h3><%= @lang.name %></h3>
+<p><strong>Slug: </strong><%= @lang.slug %></p>
+<%= link_to 'Delete this language', language_path(@lang), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+<br />
+<%= render partial: 'components/bs-btn', locals: {location: languages_path, link_text: 'All languages', qualifier: 'primary'} %>
