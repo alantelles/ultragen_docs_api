@@ -34,6 +34,15 @@ class TopicsController < ApplicationController
     end
   end
 
+  def destroy
+    @topic = Topic.find(params[:id])
+    alert = "Topic #{@topic.slug} destroyed"
+    @topic.destroy
+    @topics = Topic.all
+    flash.alert = alert
+    redirect_to 'index'
+  end
+
   def show
     @topic = Topic.find(params[:id])
 
