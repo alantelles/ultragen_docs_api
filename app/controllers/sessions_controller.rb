@@ -8,6 +8,11 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
+  def logout
+    session[:user_id] = nil
+    redirect_to :login_path
+  end
+
   def create
     post_data = params.require(:user).permit(:username, :password)
     @user = User.find_by(username: post_data[:username])
