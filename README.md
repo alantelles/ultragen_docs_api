@@ -1,24 +1,7 @@
-# README
+# UltraGen Docs Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repository for backend to UltraGen documentation site.
 
-Things you may want to cover:
+This project may be used as a start point to any software documentation with some modifications.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It as an admin page and exposes a REST API for the frontend built with UltraGen.
