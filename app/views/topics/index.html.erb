@@ -20,7 +20,7 @@
         <tr>
           <td><%= topic.id  %></td>
           <td><%= link_to topic.slug, topic_path(topic)  %></td>
-          <td><%= lang.metadata %></td>
+          <td><pre><%= topic.metadata %></pre></td>
         </tr>
         <% end %>
       <% else %>

@@ -1,0 +1,11 @@
+<h5>Topic</h5>
+<h3><%= @topic.slug %></h3>
+<p><strong>Metadata: </strong></p>
+<div class="card" style="margin-bottom: 10px">
+  <div class="card-body">
+  <pre><%= @topic.metadata %></pre>
+  </div>
+</div>
+<%= link_to 'Delete this topic', topic_path(@topic), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+<%= render partial: 'components/bs-btn', locals: {location: edit_topic_path(@topic), link_text: 'Edit this topic', qualifier: 'primary'} %>
+<%= render partial: 'components/bs-btn', locals: {location: topics_path, link_text: 'All topics', qualifier: 'primary'} %>
