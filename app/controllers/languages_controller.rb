@@ -11,6 +11,7 @@ class LanguagesController < ApplicationController
     if @lang.save
       redirect_to @lang
     else
+      @langs = Language.all
       render 'index'
     end
   end 
@@ -21,6 +22,18 @@ class LanguagesController < ApplicationController
 
   def edit
     @lang = Language.find(params[:id])
+  end
+
+  def update
+    @lang = Language.find(params[:id])
+    @lang.name = params[:language][:name]
+    @lang.slug = params[:language][:slug]
+    if @lang.save
+      redirect_to @lang
+    else
+      
+      render 'edit'
+    end
   end
 
   def destroy

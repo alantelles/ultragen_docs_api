@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-12">
+    <% if model.errors.any? %>
+      <div id="error_explanation">
+        <% model.errors.full_messages.each do |msg| %>
+          
+          <div class="alert alert-danger" role="alert"><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
