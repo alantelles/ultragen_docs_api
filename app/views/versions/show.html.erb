@@ -1,0 +1,18 @@
+<h5>Version</h5>
+<% flash.each do |type, msg| %>
+    <div class="alert alert-primary" style="width: 100%">
+      <%= msg %>
+    </div>
+    
+  <% end %>
+<h3><%= @version.name %></h3>
+<p><strong>Github tag: </strong><%= @version.github_tag %></p>
+<p><strong>Changelog: </strong></p>
+<div class="card" style="margin-bottom: 10px">
+  <div class="card-body">
+  <pre><%= @version.changelog %></pre>
+  </div>
+</div>
+<%= link_to 'Delete this version', version_path(@version), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+<%= render partial: 'components/bs-btn', locals: {location: edit_version_path(@version), link_text: 'Edit this version', qualifier: 'primary'} %>
+<%= render partial: 'components/bs-btn', locals: {location: versions_path, link_text: 'All versions', qualifier: 'primary'} %>
