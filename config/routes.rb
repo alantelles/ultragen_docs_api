@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   root 'sessions#index', as: :home_page
   get 'login', to: 'sessions#new', as: :login_path
   post 'login', to: 'sessions#create', as: :login_try_path
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
   resources :languages
   resources :topics
   resources :versions
+  resources :doc_entries
 end
