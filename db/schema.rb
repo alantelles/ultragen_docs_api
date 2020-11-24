@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_050331) do
+ActiveRecord::Schema.define(version: 2020_11_24_120331) do
+
+  create_table "doc_entries", force: :cascade do |t|
+    t.integer "language_id", null: false
+    t.integer "topic_id", null: false
+    t.integer "version_id", null: false
+    t.string "abstract", limit: 255
+    t.text "content"
+    t.integer "chapter"
+    t.integer "old_topic_autoref"
+    t.integer "old_doc_autoref"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_doc_entries_on_language_id"
+    t.index ["topic_id"], name: "index_doc_entries_on_topic_id"
+    t.index ["version_id"], name: "index_doc_entries_on_version_id"
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
@@ -44,4 +60,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_050331) do
     t.text "changelog"
   end
 
+  add_foreign_key "doc_entries", "languages"
+  add_foreign_key "doc_entries", "topics"
+  add_foreign_key "doc_entries", "versions"
 end

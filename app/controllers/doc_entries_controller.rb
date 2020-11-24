@@ -1,5 +1,7 @@
 class DocEntriesController < ApplicationController
   def new
+    @doc = DocEntry.new(language_id: 1)
+    @langs = Language.all
   end
 
   def index

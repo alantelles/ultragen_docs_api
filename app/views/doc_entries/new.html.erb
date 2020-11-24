@@ -1,2 +1,26 @@
-<h1>DocEntries#new</h1>
-<p>Find me in app/views/doc_entries/new.html.erb</p>
+<h3>New documentation entry</h3>
+
+<%= render partial: 'layouts/errors', locals: {model: @doc} %>  
+<div class="row">
+    
+    <div class="card" style="width: 100%">
+      <div class="card-header">
+        <h4>Create new doc entry</h4>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= form_with model: @doc, local: true do |form| %>
+            <div class="form-group">
+              <%= form.label 'Idioma' %><br>
+              <%= collection_select(:doc_entry, :language, @langs, :id, :name, html_options: {class: "form-control"}) %>
+            </div>
+            <div class="form-group">
+              <%= form.label :slug %><br>
+              <%= form.text_field :slug, class: "form-control" %>
+            </div>
+            <%= form.submit 'Save', class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+  
+</div>
