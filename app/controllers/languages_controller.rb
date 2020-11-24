@@ -14,9 +14,15 @@ class LanguagesController < ApplicationController
       render 'index'
     end
   end 
+
   def show
     @lang = Language.find(params[:id])
   end
+
+  def edit
+    @lang = Language.find(params[:id])
+  end
+
   def destroy
     @lang = Language.find(params[:id])
     lang_name = @lang.name
