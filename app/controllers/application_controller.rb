@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
   helper_method :admin?
+rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def current_user
     if !session[:user_id].nil?
@@ -20,5 +21,10 @@ class ApplicationController < ActionController::Base
 
   def check_authorization
     redirect_to :login_path unless logged_in?
+  end
+
+  @private
+  def record_not_found
+    render 'layouts/404'
   end
 end

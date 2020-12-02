@@ -1,2 +1,19 @@
-<h1>DocEntries#show</h1>
-<p>Find me in app/views/doc_entries/show.html.erb</p>
+<h1><%= @doc.title %></h1>
+<p><strong>Abstract: </strong><%= @doc.abstract %></p>
+<p><strong>Topic: </strong><%= @doc.topic.slug %></p>
+<p><strong>Language: </strong><%= @doc.language.name %></p>
+<p><strong>Version: </strong><%= @doc.version.name %></p>
+<div class="col-lg-12" style="margin-bottom: 10px">
+  <div class="card">
+    <div class="card-header">
+      Content
+    </div>
+    <div class="card-body">
+      <%= simple_format @doc.content %>
+    </div>
+  </div>
+    
+</div>
+<%= link_to 'Delete this doc', doc_entry_path(@doc), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+<%= render partial: 'components/bs-btn', locals: {location: edit_doc_entry_path(@doc), link_text: 'Edit this version', qualifier: 'primary'} %>
+<%= render partial: 'components/bs-btn', locals: {location: doc_entries_path, link_text: 'All doc entries', qualifier: 'primary'} %>

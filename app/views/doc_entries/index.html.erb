@@ -1,3 +1,36 @@
-<h1>DocEntries#index</h1>
-<p>Find me in app/views/doc_entries/index.html.erb</p>
-<%= render partial: "components/bs-btn", locals: {location: new_doc_entry_path, link_text: 'Create doc entry', qualifier: 'primary'} %>
+<h3>Documentations</h3>
+<div class="row">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-primary" style="width: 100%">
+      <%= msg %>
+    </div>
+    
+  <% end %>
+  <table class="table table-bordered">
+    <thead  class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Slug</th>
+        <th>Version</th>
+        <th>Abstract</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @docs.length() > 0 %>
+        <% @docs.each do |item| %>
+        <tr>
+          <td><%= item.id  %></td>
+          <td><%= link_to item.topic.slug, doc_entry_path(item)  %></td>
+          <td><%= item.version.name  %></td>
+          <td><%= item.abstract  %></td>
+        </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4">No documentations registered</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= render partial: 'components/bs-btn', locals: {location: :new_doc_entry, qualifier: 'primary', link_text: 'Create doc entry'} %>
+</div>

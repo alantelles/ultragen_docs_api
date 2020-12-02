@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_120331) do
+ActiveRecord::Schema.define(version: 2020_12_02_033411) do
 
   create_table "doc_entries", force: :cascade do |t|
     t.integer "language_id", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_120331) do
     t.integer "old_doc_autoref"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["language_id"], name: "index_doc_entries_on_language_id"
     t.index ["topic_id"], name: "index_doc_entries_on_topic_id"
     t.index ["version_id"], name: "index_doc_entries_on_version_id"

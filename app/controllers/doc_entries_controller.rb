@@ -47,7 +47,7 @@ class DocEntriesController < ApplicationController
       @langs = Language.all
       @versions = Version.all
       @topics = Topic.all
-      render edit_doc_entries_path(@doc)
+      render new_doc_entry_path(@doc)
     end 
   end
 
