@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_12_02_033411) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "doc_entries", force: :cascade do |t|
-    t.integer "language_id", null: false
-    t.integer "topic_id", null: false
-    t.integer "version_id", null: false
+    t.bigint "language_id", null: false
+    t.bigint "topic_id", null: false
+    t.bigint "version_id", null: false
     t.string "abstract", limit: 255
     t.text "content"
     t.integer "chapter"

@@ -10,12 +10,7 @@
       <div class="card-body">
         
           <%= form_with model: @user, local: true, url: :login_try_path do |form| %>
-            <% flash.each do |type, msg| %>
-              <div>
-                <%= msg %>
-              </div>
-            <% end %>
-
+            
             <div class="form-group">
               <%= form.label :username %><br>
               <%= form.text_field :username, class: "form-control", html: {autocomplete: "off"}  %>

@@ -1,10 +1,5 @@
 <h5>Version</h5>
-<% flash.each do |type, msg| %>
-    <div class="alert alert-primary" style="width: 100%">
-      <%= msg %>
-    </div>
-    
-  <% end %>
+
 <h3><%= @version.name %></h3>
 <p><strong>Github tag: </strong><%= @version.github_tag %></p>
 <p><strong>Changelog: </strong></p>
