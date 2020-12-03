@@ -13,7 +13,7 @@
                   <%= form.label 'Language' %><br>
                   <select class="form-control" name="doc_entry[language_id]">
                     <% @langs.each do |item| %>
-                      <%= tag.option item.slug, selected: (item.id == @doc.language_id), value: item.id %>
+                      <%= tag.option item.name, selected: (item.id == @doc.language_id), value: item.id %>
                     <% end %>
                   </select>
                 </div>
