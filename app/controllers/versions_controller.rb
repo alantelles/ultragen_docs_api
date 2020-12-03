@@ -41,7 +41,8 @@ class VersionsController < ApplicationController
   def create
     name = params[:version][:name]
     tag = params[:version][:github_tag]
-    @version = Version.new(name: name, github_tag: tag)
+    changelog = params[:version][:changelog]
+    @version = Version.new(name: name, github_tag: tag, changelog: changelog)
     if @version.save
       redirect_to @version
     else
